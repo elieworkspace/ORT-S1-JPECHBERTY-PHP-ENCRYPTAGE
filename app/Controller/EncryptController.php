@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+
 use Studoo\EduFramework\Core\Controller\ControllerInterface;
 use Studoo\EduFramework\Core\Controller\Request;
 use Studoo\EduFramework\Core\View\TwigCore;
@@ -9,7 +10,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class HomeController implements ControllerInterface
+class EncryptController implements ControllerInterface
 {
     /**
      * @param Request $request Requête HTTP
@@ -20,10 +21,16 @@ class HomeController implements ControllerInterface
      */
     public function execute(Request $request): string|null
     {
-        return TwigCore::getEnvironment()->render('home/home.html.twig',
+        $value = $request->getVars();
+        $encryptValue = $value["encryptValue"];
+        $base64Val = base64_encode($encryptValue);
+        #base64_decode($str);
+        return TwigCore::getEnvironment()->render('home/encrypt.html.twig',
             [
-                'titre'   => "Page d'accueil",
-                'requete' => $request
+                'titre'   => "Page d'encryptage",
+                'requete' => $request,
+                'val_encrypt' => $base64Val,
+
             ]
         );
     }

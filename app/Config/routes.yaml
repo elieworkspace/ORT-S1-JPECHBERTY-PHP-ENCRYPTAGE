@@ -2,3 +2,13 @@ index:
     uri: /
     controller: Controller\HomeController
     httpMethod: [GET]
+
+decrypt:
+    uri: /decrypt
+    controller: Controller\DecryptController
+    httpMethod: [GET, POST]
+
+encrypt:
+    uri: /encrypt
+    controller: Controller\EncryptController
+    httpMethod: [GET, POST]

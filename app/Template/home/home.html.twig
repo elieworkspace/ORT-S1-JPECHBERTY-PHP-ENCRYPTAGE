@@ -3,6 +3,18 @@
 {% block title %}{{ titre }}{% endblock %}
 
 {% block content %}
+
     <h1>{{ titre }}</h1>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4 class="card-title">Fonction d'encryptage en Base64</h4>
+        </div>
+        <div class="card-body">
+            <a href="/encrypt" type="button" class="btn btn-danger">Encryptage</a>
+            <a href="/decrypt" type="button" class="btn btn-success">Decryptage</a>
+        </div>
+    </div>
+
 {% endblock %}
 

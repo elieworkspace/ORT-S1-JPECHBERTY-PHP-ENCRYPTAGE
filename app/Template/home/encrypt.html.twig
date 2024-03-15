@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <h1>{{ titre }}</h1>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4 class="card-title">Encryptage de votre String</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/encrypt">
+                <div class="form-group mb-2">
+                    <label for="encryptValue" class="mb-1 text-small text-muted"><strong>Entrez votre Phrase a crypter : </strong></label>
+                    <textarea class="form-control" name="encryptValue" id="encryptValue" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <div class="alert alert-info" role="alert">
+                {{ val_encrypt }}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
