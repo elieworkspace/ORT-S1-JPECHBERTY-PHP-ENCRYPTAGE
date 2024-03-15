@@ -1,0 +1,44 @@
+{
+  "name": "studoo/edu-framework-skeleton",
+  "type": "project",
+  "description": "Edu Framework Skeleton",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "ext-mbstring": "*",
+    "studoo/edu-framework": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Benoit Foujols",
+      "email": "Benoit.Foujols@ac-creteil.fr"
+    },
+    {
+      "name": "Studoo Community",
+      "homepage": "https://github.com/orgs/studoo-app/people"
+    }
+  ],
+  "scripts": {
+    "edu:start": [
+      "Composer\\Config::disableProcessTimeout",
+      "php -S localhost:8042 -t public"
+    ],
+    "edu:init": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "edu:docker:db-service:start": "Studoo\\EduFramework\\Scripts\\DockerPilot::start",
+    "edu:docker:db-service:down": "Studoo\\EduFramework\\Scripts\\DockerPilot::down"
+  },
+  "scripts-descriptions": {
+    "edu:init": "Create env file",
+    "edu:start": "Start local server",
+    "edu:docker:db-service:start": "Start docker related database service [args : mysql / maria-db]",
+    "edu:docker:db-service:down": "Stop and remove docker related database service [args : mysql / maria-db]"
+  }
+}
