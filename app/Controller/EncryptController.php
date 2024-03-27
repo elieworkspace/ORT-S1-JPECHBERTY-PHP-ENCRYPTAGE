@@ -21,10 +21,10 @@ class EncryptController implements ControllerInterface
      */
     public function execute(Request $request): string|null
     {
-        $value = $request->getVars();
-        $encryptValue = $value["encryptValue"];
+        $arrayFieldsForm = $request->getVars();
+        $encryptValue = $arrayFieldsForm["encryptValue"];
         $base64Val = base64_encode($encryptValue);
-        #base64_decode($str);
+
         return TwigCore::getEnvironment()->render('home/encrypt.html.twig',
             [
                 'titre'   => "Page d'encryptage",
