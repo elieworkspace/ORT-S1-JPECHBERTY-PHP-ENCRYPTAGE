@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h1>{{ titre }}</h1>
+    <ul>
+        {% for user in list_user %}
+            <li>{{ user.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
